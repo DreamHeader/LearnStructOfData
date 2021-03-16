@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Node : NSObject
-@property(nonatomic, strong) Node* next;
+@property(nonatomic, strong,nullable) Node* next;
 @property(nonatomic, strong) id object;
 - (instancetype)initWithNext:(Node*)next object:(id)object;
 @end

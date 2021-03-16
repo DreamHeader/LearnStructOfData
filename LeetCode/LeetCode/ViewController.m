@@ -86,5 +86,71 @@
   }
   preNode.next = curNode.next;
 }
+/*
+ 两数相加
+ 给你两个 非空的链表，表示两个非负的整数。它们每位数字都是按照 逆序 的方式存储的，并且每个节点只能存储 一位 数字。
+ 请你将两个数相加，并以相同形式返回一个表示和的链表。
+ 你可以假设除了数字 0 之外，这两个数都不会以 0 开头。
+ 示例 1：
+ 输入：l1 = [2,4,3], l2 = [5,6,4]
+ 输出：[7,0,8]
+ 解释：342 + 465 = 807.
+ 示例 2：
+ 输入：l1 = [0], l2 = [0]
+ 输出：[0]
+ 示例 3：
+ 输入：l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
+ 输出：[8,9,9,9,0,0,0,1]
+ 提示：
+ 每个链表中的节点数在范围 [1, 100] 内
+ 0 <= Node.val <= 9
+ 题目数据保证列表表示的数字不含前导零
+ 来源：力扣（LeetCode）
+ 链接：https://leetcode-cn.com/problems/add-two-numbers
+ 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+ */
+- (Node*)addTwoNumbers:(Node*)listOneNode listTwoNode:(Node*)listTwoNode {
+  Node* headNode = nil;
+  Node* trailNode = nil; // 用于记录尾结点的位置
+  int carry = 0;
+  // 每一位的计算 我们应该算作 a + b +  进位值  c    这个进位值还要处理那种最后一位进位的处理
+  // 还要考虑长度不同 我们把短的补0
+  while (listOneNode || listTwoNode) {
+    int valueA = listOneNode.object ? [listOneNode.object intValue] : 0;
+    int valueB = listTwoNode.object ? [listTwoNode.object intValue] : 0;
+    int sum = valueA + valueB + carry;
+    // 第一次的时候headNode还是空要特殊处理下
+    if (!headNode) {
+      // 先串联链表关系
+      headNode = [[Node alloc] init];
+      trailNode = [[Node alloc] init];
+      headNode.object = @(sum % 10);
+      headNode.next = NULL;
+      trailNode = headNode;
+    } else {
+      Node* newNode = [[Node alloc] init];
+      newNode.object = @(sum % 10);
+      trailNode.next = newNode;
+      trailNode = newNode;
+      newNode.next = NULL;
+    }
+    // 处理进位值
+    carry = sum / 10;
+    // 遍历下一位
+    if (listOneNode) {
+      listOneNode = listOneNode.next;
+    }
+    if (listTwoNode) {
+      listTwoNode = listTwoNode.next;
+    }
+  }
+  //最后一位如果有进位 就要处理增加节点
+  if (carry > 0) {
+    trailNode.next = [[Node alloc] init];
+    trailNode.next.object = @(carry);
+    trailNode.next.next = NULL;
+  }
+  return headNode;
+}
 
 @end
