@@ -15,6 +15,7 @@
 		844AF29525FF629B00CB7306 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844AF29325FF629B00CB7306 /* LaunchScreen.storyboard */; };
 		844AF29825FF629B00CB7306 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 844AF29725FF629B00CB7306 /* main.m */; };
 		844AF2A025FF62B500CB7306 /* Node.m in Sources */ = {isa = PBXBuildFile; fileRef = 844AF29F25FF62B500CB7306 /* Node.m */; };
+		845A428D2600C5AB00BF93E5 /* removeNthFromEnd.m in Sources */ = {isa = PBXBuildFile; fileRef = 845A428C2600C5AB00BF93E5 /* removeNthFromEnd.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,9 @@
 		844AF29725FF629B00CB7306 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		844AF29E25FF62B500CB7306 /* Node.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = "<group>"; };
 		844AF29F25FF62B500CB7306 /* Node.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Node.m; sourceTree = "<group>"; };
+		845A428B2600C5AB00BF93E5 /* removeNthFromEnd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = removeNthFromEnd.h; sourceTree = "<group>"; };
+		845A428C2600C5AB00BF93E5 /* removeNthFromEnd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = removeNthFromEnd.m; sourceTree = "<group>"; };
+		845A428E2600C5D000BF93E5 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +52,7 @@
 		844AF27925FF629600CB7306 = {
 			isa = PBXGroup;
 			children = (
+				845A428E2600C5D000BF93E5 /* PrefixHeader.pch */,
 				844AF28425FF629600CB7306 /* LeetCode */,
 				844AF28325FF629600CB7306 /* Products */,
 			);
@@ -64,6 +69,7 @@
 		844AF28425FF629600CB7306 /* LeetCode */ = {
 			isa = PBXGroup;
 			children = (
+				845A428A2600C55200BF93E5 /* LeetCode */,
 				844AF28525FF629600CB7306 /* AppDelegate.h */,
 				844AF28625FF629600CB7306 /* AppDelegate.m */,
 				844AF28825FF629600CB7306 /* SceneDelegate.h */,
@@ -77,6 +83,15 @@
 				844AF29725FF629B00CB7306 /* main.m */,
 				844AF29E25FF62B500CB7306 /* Node.h */,
 				844AF29F25FF62B500CB7306 /* Node.m */,
+			);
+			path = LeetCode;
+			sourceTree = "<group>";
+		};
+		845A428A2600C55200BF93E5 /* LeetCode */ = {
+			isa = PBXGroup;
+			children = (
+				845A428B2600C5AB00BF93E5 /* removeNthFromEnd.h */,
+				845A428C2600C5AB00BF93E5 /* removeNthFromEnd.m */,
 			);
 			path = LeetCode;
 			sourceTree = "<group>";
@@ -153,6 +168,7 @@
 			files = (
 				844AF2A025FF62B500CB7306 /* Node.m in Sources */,
 				844AF28D25FF629600CB7306 /* ViewController.m in Sources */,
+				845A428D2600C5AB00BF93E5 /* removeNthFromEnd.m in Sources */,
 				844AF28725FF629600CB7306 /* AppDelegate.m in Sources */,
 				844AF29825FF629B00CB7306 /* main.m in Sources */,
 				844AF28A25FF629600CB7306 /* SceneDelegate.m in Sources */,
@@ -297,6 +313,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = LeetCode/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -313,6 +330,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = LeetCode/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
