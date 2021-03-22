@@ -1,6 +1,6 @@
 //
 //  FDKArrayList.h
-//  数据结构01- 线性表
+//  动态数组缩容
 //
 //  Created by 浮东凯 on 2021/3/8.
 //  Copyright © 2021 FDK. All rights reserved.
@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 //  不可变数组他可以这些申请固定的内存 但是oc这里呗苹果给搞了 所以就模拟一下 理解就好
 @property (nonatomic,strong)NSMutableArray * elements; // 这里是为啥不用NSArray 因为java可以申请动态内存的不可变数组 但是oc不行 所以就模拟找个类型的对象来 不影响理解动态扩容就好
 -(void)autoSetArraySize:(int)size;
+
+-(void)autoReduceArrarySize;
 
 -(void)addObject:(id)object;
 

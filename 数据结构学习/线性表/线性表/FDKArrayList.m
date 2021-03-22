@@ -1,6 +1,6 @@
 //
 //  FDKArrayList.m
-//  数据结构01- 线性表 --- 数组
+//
 //
 //  Created by 浮东凯 on 2021/3/8.
 //  Copyright © 2021 FDK. All rights reserved.
@@ -27,6 +27,24 @@
     // 申请一个更大内存的数组
     // 当数组中的东西变成id 类型 那么要考虑对象数组的内存问题
     // 如果方的对象 那么 数组存的是 对象的地址 
+}
+// 如果内存使用紧张，动态数组可以进行缩容操作
+// 比如空间占比占总容量的一半时 就进行缩容。自己根据需求定
+// 如果设计扩容和缩容的倍数不合适 会导致复杂度震荡
+// 保证扩容的倍数 和 缩容的 倍数 相乘不等于1 那么久可以初步避免复杂度震荡
+-(void)autoReduceArrarySize{
+    NSInteger capaticy = self.elements.count;
+    if (self.size >=(capaticy>>2)||capaticy < DEFAULT_SIZE)  {
+        return;
+    }
+    capaticy = (capaticy>>2);
+    // 缩容 12  6
+    // 剩余空间还很多
+    NSMutableArray * new = [[NSMutableArray alloc]initWithCapacity:capaticy];
+    for (id object in self.elements) {
+        [new addObject:object];
+    }
+    self.elements = [new mutableCopy];
 }
 // 添加
 -(void)addObject:(id)object{
@@ -108,6 +126,8 @@
     }
     self.size --;
     self.elements[self.size] = NULL;
+    // 自动根据容量进行缩容
+    [self autoReduceArrarySize];
 }
 // 清除所有
 -(void)clearAllObj{
