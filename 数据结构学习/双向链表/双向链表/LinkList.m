@@ -4,12 +4,25 @@
 //
 //  Created by 浮东凯 on 2021/3/10.
 //  Copyright © 2021 FDK. All rights reserved.
-//
+//  动态数组 vs 双向链表
+//  如果频繁在尾部添加删除 两个都可以选择
+//  如果在头部的话 选择双向链表
+// 任意位置操作添加 删除 建议 双向链表
+// 频繁查询操作 建议使用动态数组
+
+// 有了双链表 单链表没用了么？当然不是。哈希表就用到单链表
 
 #import "LinkList.h"
 // https://visualgo.net/zh
 @implementation LinkList
-
+// 构造体
+-(Node*)node:(id)object pre:(Node*)pre next:(Node*)next{
+    Node * new = [[Node alloc]init];
+    new.obj = object;
+    new.pre = pre;
+    new.next = next;
+    return new;
+}
 -(void)addObject:(id)object{
     [self addIndexAboutObject:_size++ obj:object];
 }
@@ -44,36 +57,54 @@
     }
     return needNode;
 }
-// 添加对象到对应inde
+// 添加对象到对应index 双向链表的添加
 -(void)addIndexAboutObject:(int)index obj:(id)obj{
-    Node * preIndexNode = [self getObjectWithIndex:index -1];
-    Node * oldIndexNode = [self getObjectWithIndex:index];
-    Node * newNode = [[Node alloc]init];
-    newNode.obj = obj;
-    if (index == 0) {
-        // 头部插入
-        newNode.next =oldIndexNode;
-        _firstNode.next = oldIndexNode;
+    // 尾部插入
+    if (index == self.size) {
+        // 最开始什么都没有得时候 0个元素 向 index为0插入也会走入这里
+        // 因此不仅仅是尾部会走这
+         Node * oldLast = _lastNode;
+        _lastNode = [self node:obj pre:_lastNode next:NULL];
+        if (oldLast ==NULL) {
+        //说明是链表添加的y第一个元素
+            _firstNode = _lastNode;
+        }else{
+          oldLast.next = _lastNode;
+        }
     }else{
-        // 中间插入 尾部插入
-        newNode.next = oldIndexNode;
-        preIndexNode.next = newNode;
+    //
+        Node * next = [self getObjectWithIndex:index];
+        Node * pre = next.pre;
+        Node * new = [self node:obj pre:pre next:next];
+        
+        next.pre =  new;
+        if (pre == NULL) {
+            // index == 0
+            _firstNode = new;
+            // 稀奇不 上面的流程竟然使用这里 可以自己走下插入0位置的时候是不是通用的
+        }else{
+            pre.next = new;
+        }
     }
     _size++;
 }
 
 -(void)removeObjWithIndex:(int)index{
     
-    Node * preIndexNode = [self getObjectWithIndex:index -1];
-    Node * lastIndexNode = [self getObjectWithIndex:index + 1];
-    Node * currentIndexNode = [self getObjectWithIndex:index];
-    if (index == 0) {
-     _firstNode.next =lastIndexNode;
-    }else if (index == _size){
-        preIndexNode.next =nil;
+    Node * node = [self getObjectWithIndex:index];
+    Node * pre = node.pre;
+    Node * next = node.next;
+    // 0 index pre为空需要特殊处理
+    if (pre == NULL) {
+      _firstNode = next;
     }else{
-        preIndexNode.next = lastIndexNode;
-        currentIndexNode.next = nil; 
+       pre.next = next;
+    }
+    // 说明删除的是尾节点
+    if (next == NULL) {
+      _lastNode = pre;
+    }else{
+       next.pre = pre;
     }
     _size --;
 }
@@ -81,6 +112,7 @@
 -(void)clearAllObj{
     _size = 0;
     _firstNode = nil;
+    _lastNode = nil;
     // 这样就可以清掉链表的所有元素
 }
 // 通过对象找对应下表index
