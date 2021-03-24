@@ -14,8 +14,8 @@
 		DA420BFA25FA5E8A003D4DD1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DA420BF925FA5E8A003D4DD1 /* main.m */; };
 		DA420C0425FA5E8B003D4DD1 /* ________Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = DA420C0325FA5E8B003D4DD1 /* ________Tests.m */; };
 		DA420C0F25FA5E8B003D4DD1 /* ________UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DA420C0E25FA5E8B003D4DD1 /* ________UITests.m */; };
-		DA420C1E25FA5ECA003D4DD1 /* Node.m in Sources */ = {isa = PBXBuildFile; fileRef = DA420C1C25FA5EC9003D4DD1 /* Node.m */; };
 		DA420C2125FA6087003D4DD1 /* LinkList.m in Sources */ = {isa = PBXBuildFile; fileRef = DA420C2025FA6087003D4DD1 /* LinkList.m */; };
+		DA460655260A3BCB0084C412 /* Node.m in Sources */ = {isa = PBXBuildFile; fileRef = DA460653260A3BCB0084C412 /* Node.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,10 +51,10 @@
 		DA420C0A25FA5E8B003D4DD1 /* 删除链表中的节点UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "删除链表中的节点UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA420C0E25FA5E8B003D4DD1 /* ________UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "________UITests.m"; sourceTree = "<group>"; };
 		DA420C1025FA5E8B003D4DD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DA420C1C25FA5EC9003D4DD1 /* Node.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Node.m; path = "../../../../数据结构 - 链表 1/数据结构 - 链表 1/Node.m"; sourceTree = "<group>"; };
-		DA420C1D25FA5ECA003D4DD1 /* Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Node.h; path = "../../../../数据结构 - 链表 1/数据结构 - 链表 1/Node.h"; sourceTree = "<group>"; };
 		DA420C1F25FA6086003D4DD1 /* LinkList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinkList.h; sourceTree = "<group>"; };
 		DA420C2025FA6087003D4DD1 /* LinkList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkList.m; sourceTree = "<group>"; };
+		DA460653260A3BCB0084C412 /* Node.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Node.m; sourceTree = "<group>"; };
+		DA460654260A3BCB0084C412 /* Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,14 +105,14 @@
 		DA420BEC25FA5E88003D4DD1 /* 删除链表中的节点 */ = {
 			isa = PBXGroup;
 			children = (
+				DA460654260A3BCB0084C412 /* Node.h */,
+				DA460653260A3BCB0084C412 /* Node.m */,
 				DA420BED25FA5E88003D4DD1 /* AppDelegate.h */,
 				DA420BEE25FA5E88003D4DD1 /* AppDelegate.m */,
 				DA420BF025FA5E88003D4DD1 /* ViewController.h */,
 				DA420BF125FA5E88003D4DD1 /* ViewController.m */,
 				DA420C1F25FA6086003D4DD1 /* LinkList.h */,
 				DA420C2025FA6087003D4DD1 /* LinkList.m */,
-				DA420C1D25FA5ECA003D4DD1 /* Node.h */,
-				DA420C1C25FA5EC9003D4DD1 /* Node.m */,
 				DA420BF325FA5E89003D4DD1 /* Main.storyboard */,
 				DA420BF625FA5E8A003D4DD1 /* Assets.xcassets */,
 				DA420BF825FA5E8A003D4DD1 /* Info.plist */,
@@ -268,10 +268,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA460655260A3BCB0084C412 /* Node.m in Sources */,
 				DA420BF225FA5E88003D4DD1 /* ViewController.m in Sources */,
 				DA420BFA25FA5E8A003D4DD1 /* main.m in Sources */,
 				DA420BEF25FA5E88003D4DD1 /* AppDelegate.m in Sources */,
-				DA420C1E25FA5ECA003D4DD1 /* Node.m in Sources */,
 				DA420C2125FA6087003D4DD1 /* LinkList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
