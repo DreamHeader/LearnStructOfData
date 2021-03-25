@@ -53,7 +53,7 @@
     if (headNode.next == NULL) {
         return headNode;
     }
-    Node * newhead = [[Node alloc]init];
+    Node * newhead = NULL;
     while (headNode!=NULL) {
         Node * temhead = headNode.next;
         headNode.next = newhead;

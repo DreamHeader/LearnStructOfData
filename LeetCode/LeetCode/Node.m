@@ -9,7 +9,7 @@
 #import "Node.h"
 
 @implementation Node
-- (instancetype)initWithNext:(Node*)next object:(id)object {
+- (instancetype)initWithNext:(Node* _Nullable)next object:(id _Nullable)object {
   self = [super init];
   if (self) {
     self.next = next;

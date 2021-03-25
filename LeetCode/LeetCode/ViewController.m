@@ -17,6 +17,44 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   // Do any additional setup after loading the view.
+  Node* listOne = [self createTest1];
+  Node* listTwo = [self createTest2];
+
+  Node* node = [self mergeTwoLists:listOne listTwo:listTwo];
+
+  NSLog(@"%@", node);
+}
+- (Node*)createTest1 {
+  Node* node1 = [[Node alloc] initWithNext:nil object:@(2)];
+  Node* node2 = [[Node alloc] initWithNext:nil object:@(4)];
+  Node* node3 = [[Node alloc] initWithNext:nil object:@(5)];
+  Node* node4 = [[Node alloc] initWithNext:nil object:@(6)];
+  Node* node5 = [[Node alloc] initWithNext:nil object:@(7)];
+  Node* node6 = [[Node alloc] initWithNext:nil object:@(8)];
+  node1.next = node2;
+  node2.next = node3;
+  node3.next = node4;
+  node4.next = node5;
+  node5.next = node6;
+  return node1;
+}
+- (Node*)createTest2 {
+  Node* node1 = [[Node alloc] initWithNext:nil object:@(1)];
+  Node* node2 = [[Node alloc] initWithNext:nil object:@(3)];
+  Node* node3 = [[Node alloc] initWithNext:nil object:@(5)];
+  Node* node4 = [[Node alloc] initWithNext:nil object:@(6)];
+  Node* node5 = [[Node alloc] initWithNext:nil object:@(7)];
+  Node* node6 = [[Node alloc] initWithNext:nil object:@(8)];
+  Node* node7 = [[Node alloc] initWithNext:nil object:@(9)];
+  Node* node8 = [[Node alloc] initWithNext:nil object:@(11)];
+  node1.next = node2;
+  node2.next = node3;
+  node3.next = node4;
+  node4.next = node5;
+  node5.next = node6;
+  node6.next = node7;
+  node7.next = node8;
+  return node1;
 }
 /*
  LeetCode
@@ -111,7 +149,7 @@
  */
 - (Node*)addTwoNumbers:(Node*)listOneNode listTwoNode:(Node*)listTwoNode {
   Node* headNode = nil;
-  Node* trailNode = nil; // 用于记录尾结点的位置
+  Node* trailNode = nil;  // 用于记录尾结点的位置
   int carry = 0;
   // 每一位的计算 我们应该算作 a + b +  进位值  c    这个进位值还要处理那种最后一位进位的处理
   // 还要考虑长度不同 我们把短的补0
@@ -149,6 +187,60 @@
     trailNode.next = [[Node alloc] init];
     trailNode.next.object = @(carry);
     trailNode.next.next = NULL;
+  }
+  return headNode;
+}
+/*
+ 将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。
+ 示例 1：
+ 输入：l1 = [1,2,4], l2 = [1,3,4]
+ 输出：[1,1,2,3,4,4]
+ 示例 2：
+
+ 输入：l1 = [], l2 = []
+ 输出：[]
+ 示例 3：
+
+ 输入：l1 = [], l2 = [0]
+ 输出：[0]
+ 来源：力扣（LeetCode）
+ 链接：https://leetcode-cn.com/problems/merge-two-sorted-lists
+ 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+ */
+- (Node*)mergeTwoLists:(Node*)listOne listTwo:(Node*)listTwo {
+  Node* headNode = [[Node alloc] initWithNext:nil object:nil];
+  Node* lastNode = headNode;
+  while (listOne != NULL || listTwo != NULL) {
+    id value1 = listOne ? listOne.object : @(0);
+    id value2 = listTwo ? listTwo.object : @(0);
+    Node* newNode = [[Node alloc] initWithNext:nil object:value1];
+    Node* newNode1 = [[Node alloc] initWithNext:nil object:value2];
+    if (listOne && listTwo) {
+      if ([value1 intValue] <= [value2 intValue]) {
+        newNode.next = newNode1;
+        lastNode.next = newNode;
+        lastNode = newNode1;
+      } else {
+        newNode1.next = newNode;
+        lastNode.next = newNode1;
+        lastNode = newNode;
+      }
+    } else {
+      if (!listOne) {
+        lastNode.next = newNode1;
+        lastNode = newNode1;
+      }
+      if (!listTwo) {
+        lastNode.next = newNode;
+        lastNode = newNode;
+      }
+    }
+    if (listOne) {
+      listOne = listOne.next;
+    }
+    if (listTwo) {
+      listTwo = listTwo.next;
+    }
   }
   return headNode;
 }
