@@ -43,7 +43,7 @@
     // 这个时候firstNode就是第一个结点所以让新节点指向firstNode即可
     // 这里用这个temp 原因是 如果直接改变first以后 在获取last的指针会出问题
     Node* temp = [[Node alloc] initWithObj:obj next:_firstNode];
-
+    // 获取最后指针如果是插入的第一个是有点特殊的需要处理
     Node* last =
         (self.size == 0) ? temp : [self getObjectWithIndex:self.size - 1];
     last.next = temp;
