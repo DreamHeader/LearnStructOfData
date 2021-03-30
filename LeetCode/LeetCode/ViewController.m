@@ -20,7 +20,7 @@
   Node* listOne = [self createTest1];
   Node* listTwo = [self createTest2];
 
-  Node* node = [self mergeTwoLists:listOne listTwo:listTwo];
+  Node* node = [self mergeTwoLists1:listOne listTwo:listTwo];
 
   NSLog(@"%@", node);
 }
@@ -208,6 +208,7 @@
  著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 - (Node*)mergeTwoLists:(Node*)listOne listTwo:(Node*)listTwo {
+  // 自己实现的使用新的结点 来操作
   Node* headNode = [[Node alloc] initWithNext:nil object:nil];
   Node* lastNode = headNode;
   while (listOne != NULL || listTwo != NULL) {
@@ -244,5 +245,60 @@
   }
   return headNode;
 }
+// 看到新的思路
+- (Node*)mergeTwoLists1:(Node*)listOne listTwo:(Node*)listTwo {
+  Node* headNode = [[Node alloc] initWithNext:nil object:@(-1)];
+  Node* temNode = headNode;  // 这个指针是为了记录上次操作的指针结点
+  while (listOne != NULL && listTwo != NULL) {
+    if ([listOne.object intValue]<= [listTwo.object intValue]) {
+      temNode.next = listOne;
+      listOne = listOne.next;
+    } else {
+      temNode.next = listTwo;
+      listTwo = listTwo.next;
+    }
+    // 指向串联后的最后一个结点
+    temNode = temNode.next;
+  }
+  // 当出现一个结点为空以后 那么意味着长短不一致
+  // 剩下的不为空的结点不用比了 直接接上去
+  temNode.next = listOne == NULL ? listTwo : listOne;
+
+  return headNode;
+}
+/*
+ 23. 合并K个升序链表
+ 难度
+ 困难
+ 1233
+ 给你一个链表数组，每个链表都已经按升序排列。
+
+ 请你将所有链表合并到一个升序链表中，返回合并后的链表。
+ 示例 1：
+
+ 输入：lists = [[1,4,5],[1,3,4],[2,6]]
+ 输出：[1,1,2,3,4,4,5,6]
+ 解释：链表数组如下：
+ [
+   1->4->5,
+   1->3->4,
+   2->6
+ ]
+ 将它们合并到一个有序链表中得到。
+ 1->1->2->3->4->4->5->6
+ 示例 2：
+
+ 输入：lists = []
+ 输出：[]
+ 示例 3：
+
+ 输入：lists = [[]]
+ 输出：[]
+ */
+- (Node*)mergeKLists:(Node*)listOne listTwo:(Node*)listTwo{
+  
+  return nil;
+}
+
 
 @end

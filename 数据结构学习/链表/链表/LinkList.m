@@ -42,7 +42,7 @@
     if (index == 0) {
         // 头部插入
         newNode.next =oldIndexNode;
-        _firstNode.next = oldIndexNode;
+        _firstNode.next = newNode;
     }else{
         // 中间插入 尾部插入
         newNode.next = oldIndexNode;
