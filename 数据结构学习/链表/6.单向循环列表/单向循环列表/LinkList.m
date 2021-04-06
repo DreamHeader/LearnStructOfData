@@ -15,7 +15,7 @@
 @implementation LinkList
 // 单链表查找 是next - >next 。。。 去找你想要的
 - (void)addObject:(id)object {
-  [self addIndexAboutObject:_size++ obj:object];
+  [self addIndexAboutObject:_size obj:object];
 }
 
 - (int)size {
