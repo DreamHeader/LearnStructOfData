@@ -457,6 +457,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fdk.---";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Debug;
 		};
@@ -474,6 +475,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fdk.---";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Release;
 		};

@@ -133,10 +133,38 @@
  去掉括号后表达式无歧义，上式即便写成 1 2 + 3 4 + * 也可以依据次序计算出正确结果。
  适合用栈操作运算：遇到数字则入栈；遇到算符则取出栈顶两个数字进行计算，并将结果压入栈中。
  */
--(int)evalRPN:(NSString *)string{
-  
-  
-  
-  return 0;
+- (int)evalRPN:(NSString*)string {
+  NSArray* symbolArray = @[ @"+", @"-", @"*", @"/" ];
+  Stack* stack = [[Stack alloc] init];
+  for (int i = 0; i < string.length; i++) {
+    NSString* per = [string substringFromIndex:i];
+    if ([per isEqualToString:@""]) {
+      continue;
+    }
+    // 说明是符号
+    if ([symbolArray containsObject:per]) {
+      NSString* top = [stack top];
+      [stack pop];
+      NSString* tempTop = [stack top];
+      [stack pop];
+      int sum = 0;
+      if ([per isEqualToString:@"+"]) {
+        sum = [tempTop intValue] + [top intValue];
+      } else if ([per isEqualToString:@"-"]) {
+        sum = [tempTop intValue] - [top intValue];
+      } else if ([per isEqualToString:@"*"]) {
+        sum = [tempTop intValue] * [top intValue];
+
+      } else if ([per isEqualToString:@"/"]) {
+        sum = [tempTop intValue] / [top intValue];
+      }
+      [stack push:[NSString stringWithFormat:@"%@", @(sum)]];
+    } else {
+      // 说明是操作数
+      [stack push:per];
+    }
+  }
+
+  return [stack.top intValue];
 }
 @end

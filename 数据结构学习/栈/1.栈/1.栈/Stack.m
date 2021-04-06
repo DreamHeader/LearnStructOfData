@@ -17,7 +17,8 @@
   [self removeObjWithIndex:self.size - 1];
 }
 - (id)top {
-  return [self getObjectWithIndex:self.size - 1];
+  Node* topNode = [self getObjectWithIndex:self.size - 1];
+  return topNode.obj;
 }
 - (void)clear {
   [self clearAllObj];
