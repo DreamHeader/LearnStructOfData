@@ -24,7 +24,7 @@
   return new;
 }
 - (void)addObject:(id)object {
-  [self addIndexAboutObject:_size++ obj:object];
+  [self addIndexAboutObject:_size obj:object];
 }
 
 - (int)size {

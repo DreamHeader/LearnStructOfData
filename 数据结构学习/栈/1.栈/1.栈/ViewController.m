@@ -69,7 +69,7 @@
   Stack* stack = [[Stack alloc] init];
   NSUInteger len = string.length;
   for (NSUInteger i = 0; i < len; i++) {
-    NSString* ch = [string substringFromIndex:i];
+    NSString* ch = [string substringWithRange:NSMakeRange(i, 1)];
     // 说明是左字符
     if ([map.allKeys containsObject:ch]) {
       [stack push:ch];
@@ -137,7 +137,8 @@
   NSArray* symbolArray = @[ @"+", @"-", @"*", @"/" ];
   Stack* stack = [[Stack alloc] init];
   for (int i = 0; i < string.length; i++) {
-    NSString* per = [string substringFromIndex:i];
+    NSString* per = [string substringWithRange:NSMakeRange(i, 1)];
+    ;
     if ([per isEqualToString:@""]) {
       continue;
     }
