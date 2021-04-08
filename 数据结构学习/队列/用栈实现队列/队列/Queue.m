@@ -58,7 +58,7 @@
     return node.obj;
 }
 -(void)clear{
-    [self.instack clearAllObj];
+    [self.instack clear];
     [self.outstack clear];
 }
 
