@@ -7,15 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-
-
-
 @interface cycleQueue : NSObject
 @property (nonatomic,assign) int  size;
 @property (nonatomic,assign) int  front;
 @property (nonatomic,strong) NSMutableArray * elements;
 
--(int)size;
+-(int)queueSize;
 
 -(BOOL)isEmpty;
 
