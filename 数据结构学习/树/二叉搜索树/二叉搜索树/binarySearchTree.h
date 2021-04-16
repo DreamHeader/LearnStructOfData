@@ -7,14 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Node.h"
+#import "TreeNode.h"
 #import "Compare.h"
+#import "Visitor.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface binarySearchTree : NSObject
 
 @property (nonatomic,assign) int size;
-@property (nonatomic,strong) Node *rootNode;
+@property (nonatomic,strong) TreeNode *rootNode;
 @property (nonatomic,strong) Compare *compare;
 -(instancetype)initWithCompare:(Compare*)compage;
 -(int)treeSize;
@@ -28,6 +29,10 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)remove:(id)element;
 
 -(BOOL)isContain:(id)element;
+
+- (NSString*)toString;
+
+-(void)visitorManage:(Visitor*)visitor;
 @end
 
 NS_ASSUME_NONNULL_END

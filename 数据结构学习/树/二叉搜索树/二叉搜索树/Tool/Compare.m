@@ -9,5 +9,7 @@
 #import "Compare.h"
 
 @implementation Compare
-
+-(int)compare:(Person*)element1 element2:(Person*)element2{ 
+  return element1.age - element2.age;
+}
 @end

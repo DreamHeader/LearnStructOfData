@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "Person.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Compare : NSObject
  
--(int)compare:(id)element1 element2:(id)element2;
+-(int)compare:(Person*)element1 element2:(Person*)element2;
 @end
 
 NS_ASSUME_NONNULL_END
