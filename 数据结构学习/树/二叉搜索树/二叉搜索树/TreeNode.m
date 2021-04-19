@@ -18,6 +18,9 @@
   }
   return self;
 }
+- (BOOL)isLeaf {
+  return !self.left && !self.right;
+}
 - (NSString*)toString {
   return [NSString stringWithFormat:@"Left:%@_Current%@_Right:%@\n",
                                     self.left.obj, self.obj, self.right.obj];

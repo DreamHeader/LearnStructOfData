@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) TreeNode* left;
 @property(nonatomic, strong, nullable) TreeNode* right;
 @property(nonatomic, strong, nullable) TreeNode* parent;
+@property (nonatomic,assign) BOOL isLeaf;
 - (instancetype)initWithObj:(id _Nullable)obj
                      parent:(TreeNode* _Nullable)parent;
 

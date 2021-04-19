@@ -26,8 +26,10 @@
             filePath = "&#x4e8c;&#x53c9;&#x641c;&#x7d22;&#x6811;/binarySearchTree.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "178"
-            endingLineNumber = "178">
+            startingLineNumber = "199"
+            endingLineNumber = "199"
+            landmarkName = "-isComplete"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -54,8 +56,8 @@
             filePath = "&#x4e8c;&#x53c9;&#x641c;&#x7d22;&#x6811;/binarySearchTree.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "168"
-            endingLineNumber = "168"
+            startingLineNumber = "189"
+            endingLineNumber = "189"
             landmarkName = "-visitorManage:"
             landmarkType = "7">
          </BreakpointContent>
@@ -86,8 +88,8 @@
             filePath = "&#x4e8c;&#x53c9;&#x641c;&#x7d22;&#x6811;/binarySearchTree.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "170"
-            endingLineNumber = "170"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
             landmarkName = "-visitorManage:"
             landmarkType = "7">
          </BreakpointContent>
@@ -102,10 +104,10 @@
             filePath = "&#x4e8c;&#x53c9;&#x641c;&#x7d22;&#x6811;/binarySearchTree.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "173"
-            endingLineNumber = "173"
-            landmarkName = "-visitorManage:"
-            landmarkType = "7">
+            startingLineNumber = "194"
+            endingLineNumber = "194"
+            landmarkName = "binarySearchTree"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -118,8 +120,8 @@
             filePath = "&#x4e8c;&#x53c9;&#x641c;&#x7d22;&#x6811;/binarySearchTree.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "169"
-            endingLineNumber = "169"
+            startingLineNumber = "190"
+            endingLineNumber = "190"
             landmarkName = "-visitorManage:"
             landmarkType = "7">
          </BreakpointContent>
@@ -134,10 +136,10 @@
             filePath = "&#x4e8c;&#x53c9;&#x641c;&#x7d22;&#x6811;/binarySearchTree.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
-            landmarkName = "-visitorManage:"
-            landmarkType = "7">
+            startingLineNumber = "193"
+            endingLineNumber = "193"
+            landmarkName = "binarySearchTree"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

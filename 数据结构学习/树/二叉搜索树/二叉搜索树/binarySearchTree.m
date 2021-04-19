@@ -77,15 +77,29 @@
     return;
   }
 }
-
+// 二叉树是否包含某个元素
 - (BOOL)isContain:(id)element {
+  if (!self.rootNode) {
+    return NO;
+  }
+  Queue* queue = [[Queue alloc] init];
+  [queue enQueue:self.rootNode];
+  while (!queue.isEmpty) {
+    TreeNode* node = [queue deQueue];
+    if (node.obj == element) {
+      return YES;
+    }
+    if (node.left) {
+      [queue enQueue:node.left];
+    }
+    if (node.right) {
+      [queue enQueue:node.right];
+    }
+  }
   return NO;
 }
 - (int)compare:(id)element1 element2:(id)element2 {
   return [element1 intValue] - [element2 intValue];
-}
-- (NSString*)toString {
-  return self.rootNode.toString;
 }
 #pragma mark - 前序遍历
 // 前序遍历  先根节点 前序遍历左子树 再遍历右子树
@@ -155,6 +169,7 @@
     }
   }
 }
+// 设计这种模式 对比上面的写法 是一种抽调代码的思路 前序中序后序都可以按照这种来
 - (void)visitorManage:(Visitor*)visitor {
   if (!self.rootNode || !visitor) {
     return;
@@ -173,5 +188,40 @@
       [queue enQueue:node.right];
     }
   }
+}
+#pragma mark - 是否为完全二叉树
+//是否为完全二叉树 特点是 叶子节点 只会在 倒数两个层
+//而且最后一层的叶子节点都靠左对齐
+//我们开始寻找规律：
+//1：如果当前访问的节点的左右孩子是左空右存在，说明不是完全二叉树，直接返回false。
+//2：如果当前访问的节点的左右孩子是情况左右存在，继续访问其他节点
+//3：如果当前访问的节点的左右孩子是左存在右空或者左右都为空，那么我们定义一个状态（接下来访问的所有节点必须全部是叶子节点）。只要遇到左存在右空或者左右都为空，这个状态就开启了。
+- (BOOL)isComplete {
+  if (!self.rootNode) return NO;
+  
+  Queue * queue = [[Queue alloc]init];
+  [queue enQueue:self.rootNode];
+  // 定义这个对应上面第三条
+  BOOL isLeaf = NO;
+  while (!queue.isEmpty) {
+    TreeNode* node = [queue deQueue];
+    if (isLeaf&&!node.isLeaf) {
+      return NO;
+    }
+    // 完全二叉树必须从左到右 最后一层是左对齐
+    // 如果出现了左空右存在 那么就必定不是完全二叉树
+    if (node.left) {
+      [queue enQueue:node.left];
+    }else if(node.right){
+      return NO;
+    }
+    
+    if (node.right) {
+      [queue enQueue:node.right];
+    }else{
+      isLeaf =YES;
+    }
+  }
+  return YES;
 }
 @end

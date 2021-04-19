@@ -18,21 +18,22 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong) TreeNode *rootNode;
 @property (nonatomic,strong) Compare *compare;
 -(instancetype)initWithCompare:(Compare*)compage;
+// 获取树的节点个数
 -(int)treeSize;
-
+// 是否为空
 -(BOOL)isEmpty;
-
+// 清空二叉树
 -(void)clear;
-
+// 添加元素到二叉树
 -(void)add:(id)element;
-
+// 移除二叉树元素
 -(void)remove:(id)element;
-
+// 是否包含某个元素
 -(BOOL)isContain:(id)element;
-
-- (NSString*)toString;
-
+// 抽象管理类来处理排序的模式封装抽调
 -(void)visitorManage:(Visitor*)visitor;
+//是否为完全二叉树
+-(BOOL)isComplete;
 @end
 
 NS_ASSUME_NONNULL_END
