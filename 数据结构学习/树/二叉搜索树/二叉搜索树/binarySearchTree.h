@@ -34,6 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)visitorManage:(Visitor*)visitor;
 //是否为完全二叉树
 -(BOOL)isComplete;
+-(int)treeHeght;
 @end
 
 NS_ASSUME_NONNULL_END

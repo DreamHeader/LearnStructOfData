@@ -9,8 +9,10 @@
 #import "Visitor.h"
 
 @implementation Visitor
--(void)visit:(id)node{
-  
-  NSLog(@"visit-%@",node);
+//-(void)visit:(id)node{
+//  NSLog(@"visit-%@",node);
+//}
+-(BOOL)visit:(id)node{
+  return [node intValue] ==4?YES:NO;
 }
 @end

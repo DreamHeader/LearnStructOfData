@@ -131,16 +131,21 @@
 #pragma mark - 后序遍历
 // 中序遍历 先左子树 根节点  再右子树
 // 二叉搜索树的中序遍历结果 是升序或者降序
-- (void)lastOrderTraversal {
-  [self lastOrderTraversal:self.rootNode];
+- (void)lastOrderTraversal:(Visitor*)visitor {
+  [self lastOrderTraversal:self.rootNode visitor:visitor];
 }
-- (void)lastOrderTraversal:(TreeNode*)node {
-  if (node == nil) {
+- (void)lastOrderTraversal:(TreeNode*)node visitor:(Visitor*)visitor {
+  if (node == nil || (visitor.stop)) {
     return;
   }
   [self inOrderTraversal:node.left];
   [self inOrderTraversal:node.right];
-  NSLog(@"%@", node.obj);
+
+  if (visitor.stop) {
+    return;
+  }
+  BOOL isStop = [visitor visit:node.obj];
+  visitor.stop = isStop;
 }
 #pragma mark - 层序遍历
 //从上到下 从左到右依次访问每一个节点
@@ -180,7 +185,12 @@
     TreeNode* node = [queue deQueue];
     //这种设计的模式跟上面的 levelOrderTraversal这种的对比 你想要打印这个节点还是操作任何 都是可以
     //这种设计的模式可以把东西抛出去
-    [visitor visit:node.obj];
+    // 遍历增强，可以控制在哪个位置停止遍历
+    BOOL isStop = [visitor visit:node.obj];
+    if (isStop) {
+      return;
+    }
+    visitor.stop = isStop;
     if (node.left) {
       [queue enQueue:node.left];
     }
@@ -188,6 +198,45 @@
       [queue enQueue:node.right];
     }
   }
+}
+#pragma mark - 获取树的高度
+// 从当前节点到最远节点的高度
+#pragma mark - 递归的方式
+- (int)treeHeght {
+  return [self nodeHeight:self.rootNode];
+}
+- (int)nodeHeight:(TreeNode*)node {
+  if (!node) {
+    return 0;
+  }
+  return 1 + MAX([self nodeHeight:node.left], [self nodeHeight:node.right]);
+}
+#pragma mark - 迭代的方式
+// 发现当要访问下一层的时候 当前队列放着的元素就是下一层的所有元素
+// 那么只要标志下每一层结束的点
+- (int)treeHeght1 {
+  if (!self.rootNode) {
+    return 0;
+  }
+  Queue* queue = [[Queue alloc] init];
+  [queue enQueue:self.rootNode];
+  int height = 0;  // 树的高度
+  int levelSize = 1;  // 存放每一层的元素数量
+  while (!queue.isEmpty) {
+    TreeNode* node = [queue deQueue];
+    levelSize--;
+    if (node.left) {
+      [queue enQueue:node.left];
+    }
+    if (node.right) {
+      [queue enQueue:node.right];
+    }
+    if (levelSize == 0) {  // 意味着即将要访问下一层
+      levelSize = [queue size];
+      height++;  // 访问下一层了 那么高度就增加下
+    }
+  }
+  return 0;
 }
 #pragma mark - 是否为完全二叉树
 //是否为完全二叉树 特点是 叶子节点 只会在 倒数两个层
@@ -198,30 +247,46 @@
 //3：如果当前访问的节点的左右孩子是左存在右空或者左右都为空，那么我们定义一个状态（接下来访问的所有节点必须全部是叶子节点）。只要遇到左存在右空或者左右都为空，这个状态就开启了。
 - (BOOL)isComplete {
   if (!self.rootNode) return NO;
-  
-  Queue * queue = [[Queue alloc]init];
+
+  Queue* queue = [[Queue alloc] init];
   [queue enQueue:self.rootNode];
   // 定义这个对应上面第三条
   BOOL isLeaf = NO;
   while (!queue.isEmpty) {
     TreeNode* node = [queue deQueue];
-    if (isLeaf&&!node.isLeaf) {
+    if (isLeaf && !node.isLeaf) {
       return NO;
     }
     // 完全二叉树必须从左到右 最后一层是左对齐
     // 如果出现了左空右存在 那么就必定不是完全二叉树
     if (node.left) {
       [queue enQueue:node.left];
-    }else if(node.right){
+    } else if (node.right) {
       return NO;
     }
-    
+
     if (node.right) {
       [queue enQueue:node.right];
-    }else{
-      isLeaf =YES;
+    } else { 
+      isLeaf = YES;
     }
   }
   return YES;
+}
+// 用前序遍历打印二叉树
+- (void)toString {
+  NSMutableString* mut = [[NSMutableString alloc] init];
+  [self privateToString:self.rootNode mutString:mut prefix:@"Root"];
+}
+- (void)privateToString:(TreeNode*)node
+              mutString:(NSMutableString*)sb
+                 prefix:(NSString*)prefix {
+  if (!node) {
+    return;
+  }
+  [sb appendString:[NSString
+                       stringWithFormat:@"%@%@%@", prefix, node.obj, @"\n"]];
+  [self privateToString:node.left mutString:sb prefix:@"Left"];
+  [self privateToString:node.right mutString:sb prefix:@"Right"];
 }
 @end

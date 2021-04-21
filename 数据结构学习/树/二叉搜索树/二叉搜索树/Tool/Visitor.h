@@ -11,7 +11,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Visitor : NSObject
--(void)visit:(id)node;
+@property (nonatomic,assign) BOOL stop;
+//-(void)visit:(id)node;
+// 遍历器的增强，可控制遍历到那一位置停止遍历
+-(BOOL)visit:(id)node;
 @end
 
 NS_ASSUME_NONNULL_END
