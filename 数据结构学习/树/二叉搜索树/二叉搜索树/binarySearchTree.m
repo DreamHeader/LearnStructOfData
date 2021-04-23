@@ -162,15 +162,15 @@
     return;
   }
   Queue* queue = [[Queue alloc] init];
-  [queue enQueue:self.rootNode.obj];
+  [queue enQueue:self.rootNode];
   while (!queue.isEmpty) {
     TreeNode* node = [queue deQueue];
     NSLog(@"%@", [node toString]);
     if (!node.left) {
-      [queue enQueue:node.left.obj];
+      [queue enQueue:node.left];
     }
     if (!node.right) {
-      [queue enQueue:node.right.obj];
+      [queue enQueue:node.right];
     }
   }
 }
@@ -267,7 +267,8 @@
 
     if (node.right) {
       [queue enQueue:node.right];
-    } else { 
+    } else {
+      // node.left==null&&node.right==null || node.left!=null&&node.right==null
       isLeaf = YES;
     }
   }

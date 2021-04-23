@@ -20,6 +20,8 @@
 #import "binarySearchTree.h"
 #import "Compare.h"
 #import "Visitor.h"
+#import "TreeNode.h"
+#import "Queue.h"
 @interface ViewController ()
 
 @end
@@ -28,28 +30,80 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
- 
-  NSArray * arr = @[@(7),@(4),@(2),@(3),@(6),@(8),@(9)];
-  
+
+  NSArray* arr = @[ @(7), @(4), @(2), @(3), @(6), @(8), @(9) ];
+
   // 常量类型插入二叉树
-  binarySearchTree * searchTree = [[binarySearchTree alloc]init];
-  for (int i = 0; i<arr.count; i++) {
+  binarySearchTree* searchTree = [[binarySearchTree alloc] init];
+  for (int i = 0; i < arr.count; i++) {
     [searchTree add:arr[i]];
   }
-  Visitor *visit = [[Visitor alloc]init];
+  Visitor* visit = [[Visitor alloc] init];
   [searchTree visitorManage:visit];
-   
-//  //对象插入搜索二叉树
-//   Compare * com = [[Compare alloc]init];
-//  binarySearchTree * searchTree1 = [[binarySearchTree alloc]initWithCompare:com];
-//  for (int i = 0; i<arr.count; i++) {
-//    Person*per = [[Person alloc]init];
-//    per.age = [arr[i] intValue];
-//    [searchTree1 add:per];
-//  }
-  
+
+  //  //对象插入搜索二叉树
+  //   Compare * com = [[Compare alloc]init];
+  //  binarySearchTree * searchTree1 = [[binarySearchTree alloc]initWithCompare:com];
+  //  for (int i = 0; i<arr.count; i++) {
+  //    Person*per = [[Person alloc]init];
+  //    per.age = [arr[i] intValue];
+  //    [searchTree1 add:per];
+  //  }
+
   // Do any additional setup after loading the view.
 }
+#pragma mark - 翻转二叉树
+// 前序遍历
+- (TreeNode*)invertTree:(TreeNode*)root {
+  if (root == NULL) {
+    return root;
+  }
+  TreeNode* tem = root.left;
+  root.left = root.right;
+  root.right = tem;
 
+  [self invertTree:root.left];
+  [self invertTree:root.right];
+
+  return root;
+}
+// 中序遍历
+- (TreeNode*)invertTree1:(TreeNode*)root {
+  if (root == NULL) {
+    return root;
+  }
+  [self invertTree:root.left];
+  TreeNode* tem = root.left;
+  root.left = root.right;
+  root.right = tem;
+  [self invertTree:root.left];
+  return root;
+}
+// 层序遍历
+- (TreeNode*)invertTree2:(TreeNode*)root {
+  if (root == NULL) {
+    return root;
+  }
+  Queue* queue = [[Queue alloc] init];
+  [queue enQueue:root];
+  while (!queue.isEmpty) {
+    TreeNode* node = [queue deQueue];
+    
+    TreeNode* tem = node.left;
+    node.left = node.right;
+    node.right = tem;
+    
+    if (!node.left) {
+      [queue enQueue:node.left];
+    }
+    if (!node.right) {
+      [queue enQueue:node.right];
+    }
+  }
+  return root;
+}
+#pragma mark - 根据遍历结果重构二叉树
+// 前 + 中
+// 后 + 中  可以推导一颗二叉树
 
 @end
