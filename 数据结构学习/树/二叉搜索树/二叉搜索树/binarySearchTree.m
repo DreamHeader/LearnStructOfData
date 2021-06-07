@@ -71,11 +71,21 @@
   // 数量
   self.size++;
 }
+// 删除节点
+/*
+ 1.删除叶子节点  直接删除就好  node.parent.left = null 或者 node.parent.right = null
+ 如果要删除的叶子节点的parent是null 那就是要删除根节点直接 root = null
+ 2.删除度为1的节点  用子节点替代原节点的位置 child 是 要删除节点的left或者right
+ 如果是被删除的node 是 左子节点 child.parent = node.parent  node.parent.left =child
+ 如果被删除的node是右子节点 child.parent = node.parent  node.parent.right = child;
+ 如果是根节点 那 root = child  child.parent = null
+ 
+ */
 - (void)remove:(id)element {
-  if (!element) {
-    NSLog(@"remove：%@ Error", element);
-    return;
-  }
+  
+  
+  
+  
 }
 // 二叉树是否包含某个元素
 - (BOOL)isContain:(id)element {
@@ -289,5 +299,60 @@
                        stringWithFormat:@"%@%@%@", prefix, node.obj, @"\n"]];
   [self privateToString:node.left mutString:sb prefix:@"Left"];
   [self privateToString:node.right mutString:sb prefix:@"Right"];
+}
+#pragma mark - 前驱节点
+// 前驱节点
+// 中序遍历中的前一个节点
+// 如果是二叉树，前驱节点就是前一个比他小的节点
+// 分析可以得结论 找到左子树中最大数的那个结点
+// node.left !=null   needNode = node.left.right.right.......
+// node.left == null &&node.right!=null   needNode = node.parent.parent...
+//  终止条件:node在parent的右子树中
+
+// node.left == null &&node.rig ht=null 没有前驱
+- (TreeNode*)getPredecessor:(TreeNode*)node {
+  if (!node) {
+    return NULL;
+  }
+  if (node.left) {
+    // 前驱节点在左子树中 needNode = node.left.right.right.......
+    TreeNode* p = node.left;
+    while (p.right) {
+      p = p.right;
+    }
+    return p;
+  }
+
+  while (node.parent && node == node.parent.left) {
+    node = node.parent;
+  }
+  // 能退出上面的循环
+  // 1,node.parent == null
+  // 2.node == node.parent.right
+
+  return node.parent;
+}
+#pragma mark - 后继节点
+- (TreeNode*)getSucessor:(TreeNode*)node {
+  if (!node) {
+    return NULL;
+  }
+  if (node.right) {
+    // 前驱节点在左子树中 needNode = node.left.right.right.......
+    TreeNode* p = node.left;
+    while (p.left) {
+      p = p.left;
+    }
+    return p;
+  }
+
+  while (node.parent && node == node.parent.right) {
+    node = node.parent;
+  }
+  // 能退出上面的循环
+  // 1,node.parent == null
+  // 2.node == node.parent.left
+
+  return node.parent;
 }
 @end

@@ -34,7 +34,10 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)visitorManage:(Visitor*)visitor;
 //是否为完全二叉树
 -(BOOL)isComplete;
+// 树的高度
 -(int)treeHeght;
+
+-(TreeNode*)getPredescessor:(TreeNode*)node;
 @end
 
 NS_ASSUME_NONNULL_END
