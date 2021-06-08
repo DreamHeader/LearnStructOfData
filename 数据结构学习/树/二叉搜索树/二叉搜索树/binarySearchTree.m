@@ -26,6 +26,8 @@
 }
 
 - (void)clear {
+    self.rootNode  = nil;
+    self.size = 0;
 }
 
 - (void)add:(id)element {
@@ -79,13 +81,66 @@
  如果是被删除的node 是 左子节点 child.parent = node.parent  node.parent.left =child
  如果被删除的node是右子节点 child.parent = node.parent  node.parent.right = child;
  如果是根节点 那 root = child  child.parent = null
- 
+ 3.删除度为2的节点：
+ 如果删除的是 根结点 那么就要找从树中找一个节点替代跟节点。 先用前驱或者后继节点的值覆盖原节点的值
+ 然后 删除响应的前驱或者后继的节点。
+  如果一个节点的度为2 那么 它的前驱 后继的节点的度 之可能是 1 和 0
  */
 - (void)remove:(id)element {
-  
-  
-  
-  
+    [self remove:[self getNode:element]];
+}
+-(void)removeElement:(TreeNode *) node{
+    if (!node) {
+        return;
+    }
+    self.size -- ;
+    // 处理度为2的节点
+    if(node.hasTwoChildren){
+        TreeNode * s = [self getSucessor:node];
+        // 用后继节点的值覆盖度为2的值
+        node.obj = s.obj;
+        // 删除后继节点
+        node = s;
+    }
+    // 删除node 节点 （必然是度为0 或者 1）
+    TreeNode * replaceNode = node.left?node.left:node.right;
+    if (replaceNode) {
+    // 度为1的节点
+    // 更改parent
+        replaceNode.parent = node.parent;
+        if (!node.parent) {// 度为1的节点 同时还是跟节点
+         self.rootNode = replaceNode;
+        }
+        if (node == node.parent.left) {
+            node.parent.left = replaceNode;
+        }else if (node == node.parent.right){
+            node.parent.right = replaceNode;
+        }
+    }else if (!replaceNode.parent){
+      // node是叶子节点并且是根结点
+        self.rootNode = nil;
+    }else{
+    // 度为0 的节点。叶子节点
+        if (node == node.parent.left) {
+            node.parent.left = nil;
+        }else{
+            node.parent.right = nil;
+        }
+    }
+}
+-(TreeNode*)getNode:(id)element{
+    TreeNode * node = self.rootNode;
+    while (!node) {
+        int num = [element intValue]  - [node.obj intValue];
+        if (num == 0) {
+            return node;
+        }else if (num>0){
+            node = node.right;
+        }else if (num<0){
+            node = node.left;
+        }
+    }
+    return nil;
 }
 // 二叉树是否包含某个元素
 - (BOOL)isContain:(id)element {

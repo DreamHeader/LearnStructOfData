@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface binarySearchTree : NSObject
 
 @property (nonatomic,assign) int size;
-@property (nonatomic,strong) TreeNode *rootNode;
+@property (nonatomic,strong,nullable) TreeNode *rootNode;
 @property (nonatomic,strong) Compare *compare;
 -(instancetype)initWithCompare:(Compare*)compage;
 // 获取树的节点个数

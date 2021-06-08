@@ -18,6 +18,9 @@
   }
   return self;
 }
+-(BOOL)hasTwoChildren{
+    return self.left && self.right;
+}
 - (BOOL)isLeaf {
   return !self.left && !self.right;
 }
