@@ -90,11 +90,11 @@
   [queue enQueue:root];
   while (!queue.isEmpty) {
     TreeNode* node = [queue deQueue];
-    
+
     TreeNode* tem = node.left;
     node.left = node.right;
     node.right = tem;
-    
+
     if (!node.left) {
       [queue enQueue:node.left];
     }
@@ -107,22 +107,47 @@
 #pragma mark - 根据遍历结果重构二叉树
 // 前 + 中
 // 后 + 中  可以推导一颗二叉树
- 
+
 // 前 后  如果 是一颗真二叉树 结果是唯一的 否则结果不唯一
 
 // 作业
 // 1.已知前中遍历结果，求出后序遍历结果
 // 2.已知中后遍历结果，求出前序遍历结果
 
-
-
 //
 /*
- 删除二叉搜索树中的节点
- 二叉搜索树中的搜索
- 二叉搜索树中的插入操作
- 验证二叉搜索树
- 二叉收缩书的最小绝对差
- 二叉=搜索树节点的最小距离 
+ 删除二叉搜索树中的节点   -(void)remove:(id)element;
  */
+
+//二叉搜索树中的搜索
+/*
+ 给定二叉搜索树（BST）的根节点和一个值。 你需要在BST中找到节点值等于给定值的节点。 返回以该节点为根的子树。 如果节点不存在，则返回 NULL。
+ 例如，
+ 给定二叉搜索树:
+
+         4
+        / \
+       2   7
+      / \
+     1   3
+ 和值: 2
+ 你应该返回如下子树:
+
+       2
+      / \
+     1   3
+ 来源：力扣（LeetCode）
+ 链接：https://leetcode-cn.com/problems/search-in-a-binary-search-tree
+ 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+ */
+- (TreeNode*)searchBST:(TreeNode*)root value:(id)value {
+  while (root && value != root.obj) {
+    root = value < root.obj ? root.left : root.right;
+  }
+  return root;
+}
+//二叉搜索树中的插入操作
+//验证二叉搜索树
+//二叉收缩书的最小绝对差
+//二叉=搜索树节点的最小距离
 @end
