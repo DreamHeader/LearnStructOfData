@@ -37,8 +37,10 @@
   }
   // 如果为空说明添加的第一个根节点
   if (!self.rootNode) {
-    self.rootNode = [[TreeNode alloc] initWithObj:element parent:nil];
+      self.rootNode =[self createNodeWithObj:element parent:nil];
     self.size++;
+    // 平衡
+    [self afterAdd:self.rootNode];
     return;
   }
   //找到父节点
@@ -62,7 +64,7 @@
     }
   }
   // 看插入到父节点的哪个位置
-  TreeNode* tem = [[TreeNode alloc] initWithObj:element parent:temParentNode];
+    TreeNode* tem =[self createNodeWithObj:element parent:temParentNode];
   if (num > 0) {
     temParentNode.right = tem;
   } else if (num < 0) {
@@ -70,8 +72,17 @@
   } else {
     return;
   }
+  [self afterAdd:tem];
   // 数量
   self.size++;
+}
+-(id)createNodeWithObj:(id _Nullable)obj
+                parent:(id _Nullable)parent{
+    TreeNode * node = [[TreeNode alloc] initWithObj:obj parent:parent];
+    return node; 
+}
+-(void)afterAdd:(id)node{
+    
 }
 // 删除节点
 /*

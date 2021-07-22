@@ -32,17 +32,17 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-
-  NSArray* arr = @[ @(7), @(4), @(2), @(3), @(6), @(8), @(9) ];
-
-  // 常量类型插入二叉树
-  binarySearchTree* searchTree = [[binarySearchTree alloc] init];
-  for (int i = 0; i < arr.count; i++) {
-    [searchTree add:arr[i]];
-  }
-  Visitor* visit = [[Visitor alloc] init];
-  [searchTree visitorManage:visit];
-
+//
+//  NSArray* arr = @[ @(7), @(4), @(2), @(3), @(6), @(8), @(9) ];
+//
+//  // 常量类型插入二叉树
+//  binarySearchTree* searchTree = [[binarySearchTree alloc] init];
+//  for (int i = 0; i < arr.count; i++) {
+//    [searchTree add:arr[i]];
+//  }
+//  Visitor* visit = [[Visitor alloc] init];
+//  [searchTree visitorManage:visit];
+    
   //  //对象插入搜索二叉树
   //   Compare * com = [[Compare alloc]init];
   //  binarySearchTree * searchTree1 = [[binarySearchTree alloc]initWithCompare:com];
@@ -54,6 +54,7 @@
 
   // Do any additional setup after loading the view.
 }
+
 #pragma mark - 翻转二叉树
 // 前序遍历
 - (TreeNode*)invertTree:(TreeNode*)root {

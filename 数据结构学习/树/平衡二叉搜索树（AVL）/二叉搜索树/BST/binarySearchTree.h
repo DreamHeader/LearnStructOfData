@@ -26,6 +26,10 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)clear;
 // 添加元素到二叉树
 -(void)add:(id)element;
+// 添加节点之后的操作 用于平衡二叉树
+-(void)afterAdd:(id)node;
+-(id)createNodeWithObj:(id _Nullable)obj
+                parent:(id _Nullable)parent;
 // 移除二叉树元素
 -(void)remove:(id)element;
 // 是否包含某个元素

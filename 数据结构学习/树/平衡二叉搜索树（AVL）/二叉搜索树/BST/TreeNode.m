@@ -24,6 +24,13 @@
 - (BOOL)isLeaf {
   return !self.left && !self.right;
 }
+-(BOOL)isLeftChild{
+    return self.parent&&self ==self.parent.left;
+}
+-(BOOL)isRightChild{
+    return self.parent&&self ==self.parent.right;
+
+}
 - (NSString*)toString {
   return [NSString stringWithFormat:@"Left:%@_Current%@_Right:%@\n",
                                     self.left.obj, self.obj, self.right.obj];

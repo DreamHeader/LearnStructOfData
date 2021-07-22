@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		84E4DC6A2628358200098236 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E4DC692628358200098236 /* AppDelegate.m */; };
-		84E4DC6D2628358200098236 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E4DC6C2628358200098236 /* SceneDelegate.m */; };
 		84E4DC702628358200098236 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E4DC6F2628358200098236 /* ViewController.m */; };
 		84E4DC732628358200098236 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E4DC712628358200098236 /* Main.storyboard */; };
 		84E4DC752628358800098236 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84E4DC742628358800098236 /* Assets.xcassets */; };
@@ -24,14 +23,13 @@
 		84F10BA226297EDA007AC664 /* Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F10BA026297EDA007AC664 /* Queue.m */; };
 		DABA086F269943E200A9C9DF /* 内容解释.strings in Resources */ = {isa = PBXBuildFile; fileRef = DABA086E269943E200A9C9DF /* 内容解释.strings */; };
 		DABA08732699460F00A9C9DF /* ALVTree.m in Sources */ = {isa = PBXBuildFile; fileRef = DABA08722699460F00A9C9DF /* ALVTree.m */; };
+		DABA0876269AE65600A9C9DF /* AVLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = DABA0875269AE65600A9C9DF /* AVLNode.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		84E4DC652628358200098236 /* 二叉搜索树.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "二叉搜索树.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E4DC682628358200098236 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		84E4DC692628358200098236 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		84E4DC6B2628358200098236 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
-		84E4DC6C2628358200098236 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
 		84E4DC6E2628358200098236 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		84E4DC6F2628358200098236 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		84E4DC722628358200098236 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -58,6 +56,8 @@
 		DABA086E269943E200A9C9DF /* 内容解释.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = "内容解释.strings"; sourceTree = "<group>"; };
 		DABA08712699460F00A9C9DF /* ALVTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALVTree.h; sourceTree = "<group>"; };
 		DABA08722699460F00A9C9DF /* ALVTree.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALVTree.m; sourceTree = "<group>"; };
+		DABA0874269AE65600A9C9DF /* AVLNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVLNode.h; sourceTree = "<group>"; };
+		DABA0875269AE65600A9C9DF /* AVLNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AVLNode.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +99,8 @@
 				84E4DC6F2628358200098236 /* ViewController.m */,
 				DABA08712699460F00A9C9DF /* ALVTree.h */,
 				DABA08722699460F00A9C9DF /* ALVTree.m */,
+				DABA0874269AE65600A9C9DF /* AVLNode.h */,
+				DABA0875269AE65600A9C9DF /* AVLNode.m */,
 				84E4DC712628358200098236 /* Main.storyboard */,
 				84E4DC742628358800098236 /* Assets.xcassets */,
 				84E4DC762628358800098236 /* LaunchScreen.storyboard */,
@@ -147,8 +149,6 @@
 			children = (
 				84E4DC682628358200098236 /* AppDelegate.h */,
 				84E4DC692628358200098236 /* AppDelegate.m */,
-				84E4DC6B2628358200098236 /* SceneDelegate.h */,
-				84E4DC6C2628358200098236 /* SceneDelegate.m */,
 			);
 			path = System;
 			sourceTree = "<group>";
@@ -244,7 +244,7 @@
 				84F10BA226297EDA007AC664 /* Queue.m in Sources */,
 				84E4DC8626283DDC00098236 /* binarySearchTree.m in Sources */,
 				84F10B8E26296492007AC664 /* Visitor.m in Sources */,
-				84E4DC6D2628358200098236 /* SceneDelegate.m in Sources */,
+				DABA0876269AE65600A9C9DF /* AVLNode.m in Sources */,
 				84F10B9E26297EB9007AC664 /* Node.m in Sources */,
 				DABA08732699460F00A9C9DF /* ALVTree.m in Sources */,
 				84F10B9F26297EB9007AC664 /* LinkList.m in Sources */,
@@ -389,6 +389,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "二叉搜索树/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -405,6 +406,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "二叉搜索树/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
