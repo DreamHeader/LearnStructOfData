@@ -32,6 +32,7 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
+    [self logNineNine];
 //
 //  NSArray* arr = @[ @(7), @(4), @(2), @(3), @(6), @(8), @(9) ];
 //
@@ -54,7 +55,16 @@
 
   // Do any additional setup after loading the view.
 }
-
+#pragma mark - 实现99口诀打印
+-(void)logNineNine{
+    for (int i = 1; i<=9; i++) {
+        NSMutableString * mutString =[[NSMutableString alloc]init];
+        for (int k =1 ; k<=i; k++) {
+            [mutString appendString:[NSString stringWithFormat:@"%@X%@=%@%@",@(i),@(k),@(i*k),k==i?@"\n":@" "]];
+        }
+        NSLog(@"%@",mutString);
+    }
+}
 #pragma mark - 翻转二叉树
 // 前序遍历
 - (TreeNode*)invertTree:(TreeNode*)root {
