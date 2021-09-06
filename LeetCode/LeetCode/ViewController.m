@@ -17,12 +17,12 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   // Do any additional setup after loading the view.
-  Node* listOne = [self createTest1];
-  Node* listTwo = [self createTest2];
+//  Node* listOne = [self createTest1];
+//  Node* listTwo = [self createTest2];
+//
+//  Node* node = [self mergeTwoLists1:listOne listTwo:listTwo];
 
-  Node* node = [self mergeTwoLists1:listOne listTwo:listTwo];
-
-  NSLog(@"%@", node);
+  NSLog(@"%@", [self lengthOfLongestSubstring:@"aaaaaaa"]);
 }
 - (Node*)createTest1 {
   Node* node1 = [[Node alloc] initWithNext:nil object:@(2)];
@@ -299,6 +299,5 @@
   
   return nil;
 }
-
 
 @end

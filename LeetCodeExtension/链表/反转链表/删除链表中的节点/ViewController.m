@@ -34,6 +34,7 @@
         return headNode;
     }
     Node * newhead =[self reverseLinkList:headNode.next];
+    
     headNode.next.next = headNode;
     headNode.next = NULL;
     return newhead;
