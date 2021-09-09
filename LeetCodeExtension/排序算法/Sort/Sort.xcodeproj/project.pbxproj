@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA4920E726EA524B004F32EC /* insertSort.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4920E626EA524B004F32EC /* insertSort.m */; };
+		DA4920EA26EA5914004F32EC /* ShellSort.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4920E926EA5914004F32EC /* ShellSort.m */; };
 		DA4ACECF26E7BC47007A6C46 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4ACECE26E7BC47007A6C46 /* AppDelegate.m */; };
 		DA4ACED226E7BC47007A6C46 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4ACED126E7BC47007A6C46 /* ViewController.m */; };
 		DA4ACED526E7BC47007A6C46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA4ACED326E7BC47007A6C46 /* Main.storyboard */; };
@@ -19,6 +21,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DA4920E526EA524B004F32EC /* insertSort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = insertSort.h; sourceTree = "<group>"; };
+		DA4920E626EA524B004F32EC /* insertSort.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = insertSort.m; sourceTree = "<group>"; };
+		DA4920E826EA5914004F32EC /* ShellSort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShellSort.h; sourceTree = "<group>"; };
+		DA4920E926EA5914004F32EC /* ShellSort.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShellSort.m; sourceTree = "<group>"; };
 		DA4ACECA26E7BC47007A6C46 /* Sort.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sort.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA4ACECD26E7BC47007A6C46 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DA4ACECE26E7BC47007A6C46 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -82,6 +88,10 @@
 				DA4ACEF026E7BD94007A6C46 /* MaoPaoSort.m */,
 				DA4ACEF226E7C091007A6C46 /* SelectSort.h */,
 				DA4ACEF326E7C091007A6C46 /* SelectSort.m */,
+				DA4920E526EA524B004F32EC /* insertSort.h */,
+				DA4920E626EA524B004F32EC /* insertSort.m */,
+				DA4920E826EA5914004F32EC /* ShellSort.h */,
+				DA4920E926EA5914004F32EC /* ShellSort.m */,
 			);
 			path = Sort;
 			sourceTree = "<group>";
@@ -161,6 +171,8 @@
 				DA4ACECF26E7BC47007A6C46 /* AppDelegate.m in Sources */,
 				DA4ACEF426E7C091007A6C46 /* SelectSort.m in Sources */,
 				DA4ACEF126E7BD94007A6C46 /* MaoPaoSort.m in Sources */,
+				DA4920E726EA524B004F32EC /* insertSort.m in Sources */,
+				DA4920EA26EA5914004F32EC /* ShellSort.m in Sources */,
 				DA4ACEE826E7BCA9007A6C46 /* SortBaseManage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
