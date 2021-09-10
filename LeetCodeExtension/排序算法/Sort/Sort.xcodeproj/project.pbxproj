@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		847293FC26EB22DB00D50ECB /* QuickSort.m in Sources */ = {isa = PBXBuildFile; fileRef = 847293FB26EB22DB00D50ECB /* QuickSort.m */; };
 		DA4920E726EA524B004F32EC /* insertSort.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4920E626EA524B004F32EC /* insertSort.m */; };
 		DA4920EA26EA5914004F32EC /* ShellSort.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4920E926EA5914004F32EC /* ShellSort.m */; };
 		DA4ACECF26E7BC47007A6C46 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4ACECE26E7BC47007A6C46 /* AppDelegate.m */; };
@@ -21,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		847293FA26EB22DB00D50ECB /* QuickSort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickSort.h; sourceTree = "<group>"; };
+		847293FB26EB22DB00D50ECB /* QuickSort.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickSort.m; sourceTree = "<group>"; };
 		DA4920E526EA524B004F32EC /* insertSort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = insertSort.h; sourceTree = "<group>"; };
 		DA4920E626EA524B004F32EC /* insertSort.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = insertSort.m; sourceTree = "<group>"; };
 		DA4920E826EA5914004F32EC /* ShellSort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShellSort.h; sourceTree = "<group>"; };
@@ -92,6 +95,8 @@
 				DA4920E626EA524B004F32EC /* insertSort.m */,
 				DA4920E826EA5914004F32EC /* ShellSort.h */,
 				DA4920E926EA5914004F32EC /* ShellSort.m */,
+				847293FA26EB22DB00D50ECB /* QuickSort.h */,
+				847293FB26EB22DB00D50ECB /* QuickSort.m */,
 			);
 			path = Sort;
 			sourceTree = "<group>";
@@ -170,6 +175,7 @@
 				DA4ACEDD26E7BC49007A6C46 /* main.m in Sources */,
 				DA4ACECF26E7BC47007A6C46 /* AppDelegate.m in Sources */,
 				DA4ACEF426E7C091007A6C46 /* SelectSort.m in Sources */,
+				847293FC26EB22DB00D50ECB /* QuickSort.m in Sources */,
 				DA4ACEF126E7BD94007A6C46 /* MaoPaoSort.m in Sources */,
 				DA4920E726EA524B004F32EC /* insertSort.m in Sources */,
 				DA4920EA26EA5914004F32EC /* ShellSort.m in Sources */,
