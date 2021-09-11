@@ -19,6 +19,7 @@
 		DA4ACEE826E7BCA9007A6C46 /* SortBaseManage.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4ACEE726E7BCA9007A6C46 /* SortBaseManage.m */; };
 		DA4ACEF126E7BD94007A6C46 /* MaoPaoSort.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4ACEF026E7BD94007A6C46 /* MaoPaoSort.m */; };
 		DA4ACEF426E7C091007A6C46 /* SelectSort.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4ACEF326E7C091007A6C46 /* SelectSort.m */; };
+		DA4D09B826EBA3D700EC9D94 /* MergeSort.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4D09B726EBA3D700EC9D94 /* MergeSort.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,8 @@
 		DA4ACEF026E7BD94007A6C46 /* MaoPaoSort.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaoPaoSort.m; sourceTree = "<group>"; };
 		DA4ACEF226E7C091007A6C46 /* SelectSort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectSort.h; sourceTree = "<group>"; };
 		DA4ACEF326E7C091007A6C46 /* SelectSort.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectSort.m; sourceTree = "<group>"; };
+		DA4D09B626EBA3D700EC9D94 /* MergeSort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MergeSort.h; sourceTree = "<group>"; };
+		DA4D09B726EBA3D700EC9D94 /* MergeSort.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MergeSort.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +100,8 @@
 				DA4920E926EA5914004F32EC /* ShellSort.m */,
 				847293FA26EB22DB00D50ECB /* QuickSort.h */,
 				847293FB26EB22DB00D50ECB /* QuickSort.m */,
+				DA4D09B626EBA3D700EC9D94 /* MergeSort.h */,
+				DA4D09B726EBA3D700EC9D94 /* MergeSort.m */,
 			);
 			path = Sort;
 			sourceTree = "<group>";
@@ -171,6 +176,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA4D09B826EBA3D700EC9D94 /* MergeSort.m in Sources */,
 				DA4ACED226E7BC47007A6C46 /* ViewController.m in Sources */,
 				DA4ACEDD26E7BC49007A6C46 /* main.m in Sources */,
 				DA4ACECF26E7BC47007A6C46 /* AppDelegate.m in Sources */,

@@ -13,6 +13,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SortBaseManage : NSObject
 
 -(void)sortArray:(NSArray*)dataSource;
+
+
+-(void)swap:(NSMutableArray*)dataSource oldIndex:(int)oldIndex newIndex:(int)newIndex;
 @end
 
 NS_ASSUME_NONNULL_END
